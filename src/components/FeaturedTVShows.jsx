@@ -4,7 +4,7 @@ export default function FeaturedTVShows() {
   const [tvShows, setTvShows] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/tvShows')
+    fetch('/db.json')
       .then((response) => response.json())
       .then((data) => {
         setTvShows(data);
