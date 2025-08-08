@@ -1,12 +1,11 @@
 {
   "name": "my-digital-store-app",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "vite",
-    "dev:json-server": "json-server --watch db.json --port 5000",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+"homepage": "http://josephcotterchio.github.io/digital-store-app.io",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+},
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
