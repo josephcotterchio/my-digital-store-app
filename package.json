@@ -1,0 +1,23 @@
+{
+  "name": "my-digital-store-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "dev:json-server": "json-server --watch db.json --port 5000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^6.30.1",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "json-server": "^1.0.0-beta.3",
+    "vite": "^4.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

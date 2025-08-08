@@ -1,0 +1,355 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the footer is always at the bottom */
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #e50914; /* Netflix Red */
+}
+
+header .logo img {
+  height: 60px;
+}
+
+header .navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+header .navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+header .navbar a:hover {
+  color: black; /* White color on hover */
+}
+
+/* Hero Section Styling */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #222;
+  padding: 2rem;
+}
+
+.hero-section h2, .hero-section p {
+  margin: 0;
+  padding: 10px;
+}
+
+.hero-section .slideshow {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-section .slide {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.hero-section .slide.active {
+  display: block;
+}
+
+.hero-section .movie-posters {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hero-section .movie-card {
+  width: 150px;
+  text-align: center;
+}
+
+.hero-section .movie-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.hero-section .movie-card h3 {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.hero-section .slideshow-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+.hero-section .slideshow-controls button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero-section .slideshow-controls button:hover {
+  background-color: #444;
+}
+
+/* Featured Movies & TV Shows Grid */
+.featured-movies, .featured-tvshows {
+  padding: 2rem;
+  margin: 0 5%;
+}
+
+.featured-movies h2, .featured-tvshows h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 2rem;
+}
+
+.movie-list, .tvshow-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.movie-card, .tvshow-card {
+  width: 200px;
+  text-align: center;
+}
+
+.movie-card img, .tvshow-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.movie-card h3, .tvshow-card h3 {
+  font-size: 1.1rem;
+  color: white;
+  margin-top: 10px;
+}
+
+.featured-tvshows {
+  background-color: white;
+  color: red; /* Custom color for TV Shows */
+}
+
+/* Learn More Button */
+.learn-more-button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+.learn-more-button:hover {
+  background-color: #444;
+}
+
+/* Content Section */
+.content-section {
+  background-color: #222;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+}
+
+.content-section .movie-posters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.content-section .movie-card {
+  width: 200px;
+}
+
+.content-section .movie-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #e50914; /* Netflix Red */
+  color: white;
+  padding: 2rem 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer .footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+footer .footer-logo img {
+  height: 60px;
+  margin-right: 1rem;
+}
+
+footer .footer-logo p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+footer .footer-columns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+footer .footer-column {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+footer .footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+footer .footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer .footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-column a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+footer .footer-column a:hover {
+  color: black;
+}
+
+footer .social-media {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  align-items: flex-end; /* Ensures social media icons are on the right */
+}
+
+footer .social-media a {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+footer .social-media a:hover {
+  color: #e50914;
+}
+
+@media (max-width: 768px) {
+  footer .footer-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .footer-column {
+    margin-bottom: 1rem;
+  }
+
+  footer .social-media {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem;
+  }
+
+  .movie-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .movie-list {
+    flex-direction: column;
+  }
+
+  .movie-detail-card {
+    flex-direction: column;
+  }
+
+  .movie-detail-info {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h2, .hero-section p {
+    font-size: 1rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-card, .tvshow-card {
+    width: 100%;
+  }
+
+  .navbar .left,
+  .navbar .right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar .right {
+    margin-left: 0;
+  }
+}
