@@ -6,9 +6,12 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/movies/${id}`)  // Fetch from json-server
+    fetch('/db.json') // Relative path
       .then((response) => response.json())
-      .then((data) => setMovie(data))
+      .then((data) => {
+        const selectedMovie = data.movies.find((movie) => movie.id === parseInt(id)); // Find movie by ID
+        setMovie(selectedMovie);
+      })
       .catch((error) => console.error('Error fetching movie data:', error));
   }, [id]);
 
