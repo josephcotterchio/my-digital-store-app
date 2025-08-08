@@ -1,31 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-export default function FeaturedMovies() {
-  const [movies, setMovies] = useState([]);
+export default function FeaturedTVShows() {
+  const [tvShows, setTvShows] = useState([]);
 
   useEffect(() => {
-    // Update the fetch URL to point to the json file in the public folder
-    fetch('/db.json') // This points to the db.json file in the public folder
+    fetch('http://localhost:5000/tvShows')
       .then((response) => response.json())
-      .then((data) => setMovies(data.movies)) // Set movies data
-      .catch((error) => console.error('Error fetching movies:', error));
+      .then((data) => {
+        setTvShows(data);
+      })
+      .catch((error) => console.error('Error fetching TV Shows data:', error));
   }, []);
 
+  // check if tvShows is array has content
+  if (!Array.isArray(tvShows) || tvShows.length === 0) {
+    return <div>Loading TV Shows...</div>;
+  }
+
   return (
-    <section className="featured-movies">
-      <h2>Featured Movies</h2>
-      <div className="movie-list">
-        {movies.slice(0, 4).map((movie) => (
-          <div key={movie.id} className="movie-card">
-            <img src={movie.poster} alt={movie.title} />
-            <h3>{movie.title}</h3>
+    <section className="featured-tvshows">
+      <h2>Featured TV Shows</h2>
+      <div className="tvshow-list">
+        {tvShows.slice(0, 4).map((tvShow) => (
+          <div key={tvShow.id} className="tvshow-card">
+            <img src={tvShow.poster} alt={tvShow.title} />
+            <h3>{tvShow.title}</h3>
+            <a href={`/tvshow/${tvShow.id}`} className="learn-more-btn">Learn More</a>
           </div>
         ))}
-        </div>
-      {/* button for FeaturedMovies */}
+      </div>
+            {/* button for FeaturedMovies */}
       <Link to="/moviesandtvshows" className="learn-more-button">Learn More</Link>
     </section>
   );
 }
-
