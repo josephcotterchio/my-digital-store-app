@@ -4,9 +4,9 @@ export default function ContentSection() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/movies')
+    fetch('/db.json')
       .then((response) => response.json())
-      .then((data) => setMovies(data))
+      .then((data) => setMovies(data.movies)) 
       .catch((error) => console.error('Error fetching movie data:', error));
   }, []);
 
