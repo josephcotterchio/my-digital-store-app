@@ -5,11 +5,11 @@ export default function HeroSection() {
   const [movies, setMovies] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0); // manage current slide
 
+
   useEffect(() => {
-    // data from server
-    fetch('http://localhost:5000/movies')
+    fetch('/db.json') // This points to the db.json file in the public folder
       .then((response) => response.json())
-      .then((data) => setMovies(data))
+      .then((data) => setMovies(data.movies)) // Extract movies data
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
