@@ -22,6 +22,8 @@ export default function FeaturedMovies() {
           </div>
         ))}
       </div>
+            {/* button for FeaturedMovies */}
+      <Link to="/moviesandtvshows" className="learn-more-button">Learn More</Link>
     </section>
   );
 }
