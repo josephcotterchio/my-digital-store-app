@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function FeaturedMovies() {
@@ -22,9 +22,10 @@ export default function FeaturedMovies() {
             <h3>{movie.title}</h3>
           </div>
         ))}
-      </div>
-            {/* button for FeaturedMovies */}
+        </div>
+      {/* button for FeaturedMovies */}
       <Link to="/moviesandtvshows" className="learn-more-button">Learn More</Link>
     </section>
   );
 }
+
