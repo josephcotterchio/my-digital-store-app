@@ -6,9 +6,13 @@ export default function TVShowDetailsPage() {
   const [tvShow, setTvShow] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tvShows/${id}`)  // Fetch from json-server
+    // Fetch the db.json file from the public folder
+    fetch('/db.json')  // Use a relative path to fetch db.json
       .then((response) => response.json())
-      .then((data) => setTvShow(data))
+      .then((data) => {
+        const selectedTvShow = data.tvShows.find((show) => show.id === parseInt(id)); // Find the TV show by ID
+        setTvShow(selectedTvShow);
+      })
       .catch((error) => console.error('Error fetching TV show data:', error));
   }, [id]);
 
