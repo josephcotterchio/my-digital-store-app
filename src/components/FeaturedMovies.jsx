@@ -1,11 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-export default function FeaturedMovies({ movies }) {
-  // if movies has data
-  if (!Array.isArray(movies) || movies.length === 0) {
-    return <div>Loading Movies...</div>;  // load message
-  }
+export default function FeaturedMovies() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    // Update the fetch URL to point to the json file in the public folder
+    fetch('/db.json') // This points to the db.json file in the public folder
+      .then((response) => response.json())
+      .then((data) => setMovies(data.movies)) // Set movies data
+      .catch((error) => console.error('Error fetching movies:', error));
+  }, []);
+
   return (
     <section className="featured-movies">
       <h2>Featured Movies</h2>
@@ -17,8 +22,6 @@ export default function FeaturedMovies({ movies }) {
           </div>
         ))}
       </div>
-      {/* button for FeaturedMovies */}
-      <Link to="/moviesandtvshows" className="learn-more-button">Learn More</Link>
     </section>
   );
 }
