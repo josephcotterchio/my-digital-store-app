@@ -4,28 +4,18 @@ export default function FeaturedTVShows() {
   const [tvShows, setTvShows] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/tvShows')
+    fetch('/db.json') 
       .then((response) => response.json())
-      .then((data) => {
-        setTvShows(data);
-      })
-      .catch((error) => console.error('Error fetching TV Shows data:', error));
+      .then((data) => setMovies(data.movies)) // Set movies data
+      .catch((error) => console.error('Error fetching movies:', error));
   }, []);
 
-  // check if tvShows is array has content
-  if (!Array.isArray(tvShows) || tvShows.length === 0) {
-    return <div>Loading TV Shows...</div>;
-  }
-
   return (
-    <section className="featured-tvshows">
-      <h2>Featured TV Shows</h2>
-      <div className="tvshow-list">
-        {tvShows.slice(0, 4).map((tvShow) => (
-          <div key={tvShow.id} className="tvshow-card">
-            <img src={tvShow.poster} alt={tvShow.title} />
-            <h3>{tvShow.title}</h3>
-            <a href={`/tvshow/${tvShow.id}`} className="learn-more-btn">Learn More</a>
+      <div className="movie-list">
+        {movies.slice(0, 4).map((movie) => (
+          <div key={movie.id} className="movie-card">
+            <img src={movie.poster} alt={movie.title} />
+            <h3>{movie.title}</h3>
           </div>
         ))}
       </div>
