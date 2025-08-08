@@ -17,16 +17,13 @@ export default function App() {
   const [tvShows, setTvShows] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/movies')
-      .then((response) => response.json())
-      .then((data) => setMovies(data))
-      .catch((error) => console.error('Error fetching movies:', error));
-
-    fetch('http://localhost:5000/tvShows')
-      .then((response) => response.json())
-      .then((data) => setTvShows(data))
-      .catch((error) => console.error('Error fetching TV shows:', error));
-  }, []);
+fetch('/db.json')
+  .then(response => response.json())
+  .then(data => {
+    setMovies(data.movies);
+    setTvShows(data.tvShows);
+  })
+  .catch(error => console.error('Error fetching data:', error));
 
   return (
     <Router>
