@@ -12,11 +12,6 @@ export default function FeaturedTVShows() {
       .catch((error) => console.error('Error fetching TV Shows data:', error));
   }, []);
 
-  // check if tvShows is array has content
-  if (!Array.isArray(tvShows) || tvShows.length === 0) {
-    return <div>Loading TV Shows...</div>;
-  }
-
   return (
     <section className="featured-tvshows">
       <h2>Featured TV Shows</h2>
